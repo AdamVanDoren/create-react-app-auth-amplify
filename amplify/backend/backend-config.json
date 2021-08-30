@@ -35,10 +35,29 @@
           ]
         }
       ]
+    },
+    "helmapi": {
+      "service": "API Gateway",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "helmfunction",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        }
+      ]
     }
   },
   "function": {
     "mainlambda": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "helmfunction": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"

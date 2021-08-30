@@ -19,6 +19,10 @@
         "mainlambda": {
           "deploymentBucketName": "amplify-authcra-devx-162946-deployment",
           "s3Key": "amplify-builds/mainlambda-757930485a384e4e3252-build.zip"
+        },
+        "helmfunction": {
+          "deploymentBucketName": "amplify-authcra-devx-162946-deployment",
+          "s3Key": "amplify-builds/helmfunction-4a7471316c6c4f426b4b-build.zip"
         }
       }
     }

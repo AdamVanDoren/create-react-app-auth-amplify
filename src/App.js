@@ -39,6 +39,16 @@ function App() {
     await API.graphql({ query: deleteNoteMutation, variables: { input: { id } }});
   }
 
+  // Helm API
+  async function callHelm() {
+      try {
+          const order = await API.get('helmapi', '/order')
+          console.log(order)
+      } catch (err) {
+          console.log({ err })
+      }
+  }
+
   // People JS API (form tutorial)
   async function callApi() {
     try {
