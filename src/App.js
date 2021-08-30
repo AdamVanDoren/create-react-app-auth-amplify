@@ -14,6 +14,8 @@ const initialFormState = { name: '', description: ''}
 function App() {
   const [notes, setNotes] = useState([]);
   const [formData, setFormData] = useState(initialFormState);
+  const [people, updatePeople] = useState([])
+  const [coins, updateCoins] = useState([])
 
   useEffect(() => {
     fetchNotes();
@@ -36,6 +38,23 @@ function App() {
     setNotes(newNotesArray);
     await API.graphql({ query: deleteNoteMutation, variables: { input: { id } }});
   }
+
+  // People JS API (form tutorial)
+  async function callApi() {
+    try {
+        const peopleData = await API.get('mainappapi', '/people');
+        console.log('peopleData: ', peopleData)
+        updatePeople(peopleData.people)
+        const coinsData = await API.get('mainappapi', '/coins');
+        console.log('coinsData: ', coinsData)
+        updateCoins(coinsData.coins)
+    } catch (err) {
+        console.log({ err })
+    }
+  }
+  useEffect(() => {
+    callApi()
+  }, [])
 
   return (
     <div className="App">
@@ -62,6 +81,18 @@ function App() {
           ))
         }
       </div>
+      <h1>Star Wars People</h1>
+        <div style={{marginBottom: 30}}>
+            {
+                people.map((p, i) => <h2>{p.name}</h2>)
+            }
+        </div>
+      <h1>Coins</h1>
+        <div style={{marginBottom: 30}}>
+            {
+                coins.map((c, i) => <h2>{c.name}</h2>)
+            }
+        </div>
       <AmplifySignOut />
     </div>
   );
