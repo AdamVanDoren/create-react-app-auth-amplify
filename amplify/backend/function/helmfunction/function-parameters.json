@@ -1,0 +1,9 @@
+{
+  "lambdaLayers": [],
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "helmKey",
+      "environmentVariableName": "HELM_KEY"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "paths": [
+    {
+      "name": "/helm/orders",
+      "lambdaFunction": "helmfunction",
+      "privacy": {
+        "private": true,
+        "auth": [
+          "/GET"
+        ]
+      },
+      "policyResourceName": "/helm/orders"
+    },
+    {
+      "name": "/helm/message",
+      "lambdaFunction": "helmfunction",
+      "privacy": {
+        "open": true
+      },
+      "policyResourceName": "/helm/message"
+    }
+  ],
+  "resourceName": "helmapi",
+  "apiName": "helmapi",
+  "functionArns": [
+    {
+      "lambdaFunction": "helmfunction"
+    }
+  ],
+  "privacy": {
+    "auth": 1,
+    "unauth": 0,
+    "authRoleName": "amplify-authcra-devx-162946-authRole",
+    "unAuthRoleName": "amplify-authcra-devx-162946-unauthRole"
+  },
+  "dependsOn": [
+    {
+      "category": "function",
+      "resourceName": "helmfunction",
+      "attributes": [
+        "Name",
+        "Arn"
+      ]
+    }
+  ]
+}

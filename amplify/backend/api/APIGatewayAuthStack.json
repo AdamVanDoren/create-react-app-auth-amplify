@@ -367,7 +367,7 @@
                           }
                         ]
                       },
-                      "/GET/order/*"
+                      "/GET/helm/orders/*"
                     ]
                   ]
                 },
@@ -397,7 +397,7 @@
                           }
                         ]
                       },
-                      "/GET/order"
+                      "/GET/helm/orders"
                     ]
                   ]
                 }

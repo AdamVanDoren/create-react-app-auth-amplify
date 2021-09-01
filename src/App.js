@@ -17,6 +17,8 @@ function App() {
   const [people, updatePeople] = useState([])
   const [coins, updateCoins] = useState([])
 
+  const [orders, setOrderData] = useState([])
+
   useEffect(() => {
     fetchNotes();
   }, []);
@@ -39,7 +41,23 @@ function App() {
     await API.graphql({ query: deleteNoteMutation, variables: { input: { id } }});
   }
 
-  // People JS API (form tutorial)
+  // Helm API
+  async function callHelmApi() {
+      try {
+          const message = await API.get('helmapi', '/helm/message')
+          const orderData = await API.get('helmapi', '/helm/orders')
+          setOrderData(orderData.orders)
+          console.log('message: ', message)
+          console.log('orderData: ', orderData)
+      } catch (err) {
+          console.log({ err })
+      }
+  }
+  useEffect(() => {
+    callHelmApi()
+  }, [])
+
+  // People JS API (from tutorial)
   async function callApi() {
     try {
         const peopleData = await API.get('mainappapi', '/people');
@@ -81,6 +99,12 @@ function App() {
           ))
         }
       </div>
+      <h1>Open Orders</h1>
+        <div style={{marginBottom: 30}}>
+            {
+                orders.map((o, i) => <h2>{o.OrderNumber}</h2>)
+            }
+        </div>
       <h1>Star Wars People</h1>
         <div style={{marginBottom: 30}}>
             {
