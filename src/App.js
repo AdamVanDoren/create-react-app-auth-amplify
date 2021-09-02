@@ -44,17 +44,32 @@ function App() {
   // Helm API
   async function callHelmApi() {
       try {
-          const message = await API.get('helmapi', '/helm/message')
-          const orderData = await API.get('helmapi', '/helm/orders')
-          setOrderData(orderData.orders)
-          console.log('message: ', message)
-          console.log('orderData: ', orderData)
+          // const message = await API.get('helmapi', '/helm/message')
+          // const orderData = await API.get('helmapi', '/helm/orders')
+          // setOrderData(orderData.orders)
+          // console.log('message: ', message)
+          // console.log('orderData: ', orderData)
       } catch (err) {
           console.log({ err })
       }
   }
   useEffect(() => {
     callHelmApi()
+  }, [])
+
+  // Snowflake API
+  async function callSnowflakeAPI() {
+      try {
+          const message = await API.get('snowflakeapi', '/snowflake/message')
+          // const vandorenData = await API.get('snowflakeapi', '/snowflake/vandoren')
+          console.log('Snowflake message: ', message)
+          // console.log('vandorenData: ', vandorenData)
+      } catch (err) {
+          console.log({ err })
+      }
+  }
+  useEffect(() => {
+    callSnowflakeAPI()
   }, [])
 
   // People JS API (from tutorial)

@@ -1,0 +1,17 @@
+{
+  "lambdaLayers": [],
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "snowAccount",
+      "environmentVariableName": "SNOW_ACCOUNT"
+    },
+    {
+      "cloudFormationParameterName": "snowUser",
+      "environmentVariableName": "SNOW_USER"
+    },
+    {
+      "cloudFormationParameterName": "snowPassword",
+      "environmentVariableName": "SNOW_PASSWORD"
+    }
+  ]
+}

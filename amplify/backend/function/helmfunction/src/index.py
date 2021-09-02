@@ -37,6 +37,7 @@ def handler(event, context):
         if method == 'GET':
             body = {
                 'event': event,
+                'message': 'Queried orders directly from Helm!',
                 'orders': get_orders()
             }
         else:

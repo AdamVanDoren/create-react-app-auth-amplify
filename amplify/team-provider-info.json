@@ -22,8 +22,15 @@
         },
         "helmfunction": {
           "deploymentBucketName": "amplify-authcra-devx-162946-deployment",
-          "s3Key": "amplify-builds/helmfunction-776c59776b493736526f-build.zip",
+          "s3Key": "amplify-builds/helmfunction-4c45435558507438496d-build.zip",
           "helmKey": "qvY6bDL26xGCUbPHwsqkolBCc29mS29sV2JUUllMVjJwanYw"
+        },
+        "snowflakefunction": {
+          "deploymentBucketName": "amplify-authcra-devx-162946-deployment",
+          "s3Key": "amplify-builds/snowflakefunction-572f584f335975394955-build.zip",
+          "snowAccount": "crowleydev.us-east-1",
+          "snowUser": "vandoad",
+          "snowPassword": "frontier5chicken"
         }
       }
     }
